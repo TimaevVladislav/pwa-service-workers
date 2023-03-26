@@ -1,5 +1,17 @@
 
-window.addEventListener("load", async () => await loadPosts())
+window.addEventListener("load", async () => {
+
+    if ('serviceWorker' in navigator) {
+       try {
+           const register = await navigator.serviceWorker.register("/sw.config.js")
+           console.log("Service worker register success", register)
+       } catch (e) {
+           console.log("Service worker register fail")
+       }
+    }
+
+    await loadPosts()
+})
 
 async function loadPosts() {
      const container = document.querySelector("#posts")

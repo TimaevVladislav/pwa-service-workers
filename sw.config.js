@@ -4,5 +4,5 @@ self.addEventListener('install', e => {
 })
 
 self.addEventListener('activate', e => {
-    console.log('[SW]: install')
+    console.log('[SW]: activate')
 })
